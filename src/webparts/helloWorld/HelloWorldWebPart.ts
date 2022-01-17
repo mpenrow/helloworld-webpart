@@ -9,6 +9,8 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import styles from './HelloWorldWebPart.module.scss';
 import * as strings from 'HelloWorldWebPartStrings';
 
+import {Log} from "@microsoft/sp-core-library";
+
 export interface IHelloWorldWebPartProps {
   description: string;
 }
@@ -16,6 +18,8 @@ export interface IHelloWorldWebPartProps {
 export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
 
   public render(): void {
+    Log.info("render", "I am about to render the webpart.");
+    
     this.domElement.innerHTML = `
       <div class="${ styles.helloWorld }">
         <div class="${ styles.container }">
